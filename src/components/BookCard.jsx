@@ -1,11 +1,16 @@
-function BookCard({ image, title, price, url, onRemove }) {
+import React from "react";
+import "./BookCard.css";
+
+function BookCard({ book, onSelect }) {
   return (
-    <div className="book-card">
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{price}</p>
-      <a href={url} target="_blank" rel="noopener noreferrer">Buy</a>
-      <span className="remove-btn" onClick={onRemove}>x</span> {/* remove button */}
+    <div
+      className={`book-card ${book.selected ? "selected" : ""}`}
+      onClick={onSelect}
+    >
+      <img src={book.image} alt={book.title} />
+      <h3>{book.title}</h3>
+      <p>{book.author}</p>
+      <p className="price">{book.price}</p>
     </div>
   );
 }

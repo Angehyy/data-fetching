@@ -4,26 +4,57 @@ import BookCard from "./components/BookCard";
 import "./App.css";
 
 function App() {
-  const [books, setBooks] = useState(data);
-  const [isModalOpen, setIsModalOpen] = useState(false); // <-- modal state
+  const [books, setBooks] = useState(
+    data.map(book => ({ ...book, selected: false }))
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const removeBook = (isbn) => {
-    setBooks((prevBooks) => prevBooks.filter((book) => book.isbn13 !== isbn));
+  // Toggle selection: only one book can be selected at a time
+  const handleSelectBook = (isbn) => {
+    setBooks((prevBooks) =>
+      prevBooks.map((book) =>
+        book.isbn13 === isbn
+          ? { ...book, selected: !book.selected }
+          : { ...book, selected: false }
+      )
+    );
   };
 
+  // Delete selected book
+  const handleDelete = () => {
+    setBooks((prevBooks) => prevBooks.filter((book) => !book.selected));
+  };
+
+  // Update = no-op for now
+  const handleUpdate = () => {
+    alert("Update functionality coming soon!");
+  };
+
+  // Modal controls
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  // Add a new book
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const newBook = {
+      title: form.title.value,
+      author: form.author.value,
+      image: form.url.value,
+      isbn13: Date.now().toString(),
+      selected: false,
+      price: form.price?.value || "$0"
+    };
+    setBooks((prevBooks) => [...prevBooks, newBook]);
     closeModal();
-    // For now, we’re not doing anything with the data
+    form.reset();
   };
 
   return (
     <div className="app">
       <header className="header">
-        <h1>Book Catalog</h1>
+        <h1>📚 Book Catalog</h1>
       </header>
 
       <main className="main-content">
@@ -31,22 +62,24 @@ function App() {
           {books.map((book) => (
             <BookCard
               key={book.isbn13}
-              image={book.image}
-              title={book.title}
-              price={book.price}
-              url={book.url}
-              onRemove={() => removeBook(book.isbn13)}
+              book={book}
+              onSelect={() => handleSelectBook(book.isbn13)}
             />
           ))}
-        </div>
 
-        <div className="add-area">
-          <button className="add-btn" onClick={openModal}>+</button>
+          {/* Add card */}
+          <div className="add-card">
+            <button className="add-btn" onClick={openModal}>+</button>
+            <div className="action-buttons-vertical">
+              <button onClick={handleUpdate}>Update</button>
+              <button onClick={handleDelete}>Delete</button>
+            </div>
+          </div>
         </div>
       </main>
 
       <footer className="footer">
-        <p>&copy; 2025 My Book Catalog</p>
+        <p>© 2025 My Book Catalog —  ❤️ Angel</p>
       </footer>
 
       {/* Modal */}
@@ -64,20 +97,12 @@ function App() {
                 <input type="text" name="author" required />
               </label>
               <label>
-                Publisher:
-                <input type="text" name="publisher" required />
+                URL (cover image):
+                <input type="text" name="url" required />
               </label>
               <label>
-                Publication Year:
-                <input type="number" name="year" required />
-              </label>
-              <label>
-                Language:
-                <input type="text" name="language" required />
-              </label>
-              <label>
-                Pages:
-                <input type="number" name="pages" required />
+                Price:
+                <input type="text" name="price" />
               </label>
               <div className="modal-actions">
                 <button type="submit">Submit</button>
