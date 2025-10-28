@@ -167,3 +167,33 @@
   margin-top: 10px;
   width: 80%;              /* Matches form width */
 }
+
+/* Filter Section (Centered) */
+.filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-section label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.filter-section select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-section select:hover {
+  border-color: #888;
+  background-color: #f9f9f9;
+}
