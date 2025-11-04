@@ -197,3 +197,90 @@
   border-color: #888;
   background-color: #f9f9f9;
 }
+
+/* ===== Loan Management Section ===== */
+.loan-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loan-section h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* ===== Loan Form ===== */
+.loan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loan-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.loan-form input,
+.loan-form select {
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.loan-form input:focus,
+.loan-form select:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #f9f9f9;
+}
+
+.loan-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.loan-form button:hover {
+  background-color: #218838;
+}
+
+/* ===== Loaned Books List ===== */
+.loan-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loan-section li {
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}

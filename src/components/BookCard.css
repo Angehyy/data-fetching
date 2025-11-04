@@ -1,44 +1,66 @@
 .book-card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.2s, border 0.2s;
-  }
-  
-  .book-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .book-card.selected {
-    border: 2px solid #007bff;
-    box-shadow: 0 0 10px rgba(0,123,255,0.3);
-  }
-  
-  .book-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .book-card h3 {
-    margin: 6px 0;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  .book-card p {
-    margin: 4px 0;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .book-card .price {
-    color: #007bff;
-    font-weight: bold;
-  }
-  
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-card.selected {
+  border: 2px solid #007bff;
+  box-shadow: 0 0 10px rgba(0,123,255,0.3);
+}
+
+/* Dim image when book is on loan */
+.book-card.on-loan img {
+  opacity: 0.6;
+}
+
+.book-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: opacity 0.2s;
+}
+
+.book-card h3 {
+  margin: 6px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.book-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.book-card .price {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* On Loan badge */
+.book-card .image-wrapper {
+  position: relative;
+}
+
+.book-card .loan-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #e74c3c;
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
