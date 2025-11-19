@@ -1,7 +1,7 @@
 import React from "react";
 import "./BookCard.css";
 
-function BookCard({ book, onSelect }) {
+function BookCard({ book, onSelect, onViewDetails }) {
   return (
     <div
       className={`book-card ${book.selected ? "selected" : ""} ${book.onLoan ? "on-loan" : ""}`}
@@ -14,6 +14,15 @@ function BookCard({ book, onSelect }) {
       <h3>{book.title}</h3>
       <p>{book.author}</p>
       <p className="price">{book.price}</p>
+      <button
+        className="details-btn"
+        onClick={(e) => {
+          e.stopPropagation();
+          onViewDetails();
+        }}
+      >
+        View Details
+      </button>
     </div>
   );
 }

@@ -284,3 +284,55 @@
   color: #333;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+
+.switch-view-btn {
+  background-color: #ff6b81; /* soft pink */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.switch-view-btn:hover {
+  background-color: #ff4757; /* darker pink on hover */
+  transform: translateY(-2px);
+}
+
+/* ===== Switch view buttons ===== */
+.switch-btn {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch-btn:hover {
+  background-color: #e0559e;
+}
+
+/* ===== Details button in BookCard ===== */
+.details-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+}
